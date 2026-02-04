@@ -16,9 +16,9 @@ export class InvitationService {
 
         doc.pipe(res);
 
-        // Branding / Header
+        
         doc
-            .fillColor('#e67e22') // Imena Orange
+            .fillColor('#e67e22') 
             .fontSize(28)
             .text('IMENA FAMILY', { align: 'center' })
             .moveDown(0.5);
@@ -29,7 +29,7 @@ export class InvitationService {
             .text('Official Invitation', { align: 'center' })
             .moveDown(2);
 
-        // Invitation Details
+    
         doc
             .fillColor('#2c3e50')
             .fontSize(22)
@@ -56,7 +56,7 @@ export class InvitationService {
                 .text(createInvitationDto.notes);
         }
 
-        // Footer
+        
         doc
             .moveDown(4)
             .fontSize(10)
