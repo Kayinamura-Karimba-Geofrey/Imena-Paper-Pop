@@ -31,13 +31,13 @@ export class InvitationService {
         const pageWidth = doc.page.width;
         const pageHeight = doc.page.height;
 
-        // Resolve logo path - ensure it works in both dev and prod
+        
         const logoPath = path.join(process.cwd(), 'assets', 'logo.png');
         console.log('Checking logo at:', logoPath);
         const logoExists = fs.existsSync(logoPath);
         console.log('Logo exists:', logoExists);
 
-        // --- 1. Watermark (Background) ---
+        
         if (logoExists) {
             doc.save();
             doc.opacity(0.1);
@@ -52,7 +52,7 @@ export class InvitationService {
             doc.restore();
         }
 
-        // --- 2. Page Border ---
+        
         doc.rect(20, 20, pageWidth - 40, pageHeight - 40)
             .lineWidth(2)
             .strokeColor(colors.border)
@@ -63,20 +63,20 @@ export class InvitationService {
             .strokeColor(colors.border)
             .stroke();
 
-        // --- 3. Header Banner ---
+        
         const bannerHeight = 160;
         doc.rect(20, 20, pageWidth - 40, bannerHeight)
             .fill(colors.primary);
 
         let textStartY = 45;
 
-        // Logo in Header
+        
         if (logoExists) {
             const logoHeaderSize = 80;
             const logoHeaderX = (pageWidth - logoHeaderSize) / 2;
             try {
                 doc.image(logoPath, logoHeaderX, 35, { width: logoHeaderSize });
-                textStartY = 125; // Push text down
+                textStartY = 125; 
             } catch (error) {
                 console.error('Error adding header logo:', error);
             }
