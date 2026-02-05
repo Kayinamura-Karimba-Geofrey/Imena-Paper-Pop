@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: imena-paper-pop-backend
-    env: node
-    buildCommand: npm install && npm run build
-    startCommand: npm run start:prod
-    envVars:
-      - key: PORT
-        value: 10000
