@@ -1,9 +1,8 @@
-import { Controller, Post, Body, Res, UseGuards } from '@nestjs/common';
+import { Controller, Post, Body, Res } from '@nestjs/common';
 import { InvitationService } from './invitation.service.js';
 import { CreateInvitationDto } from './dto/create-invitation.dto.js';
 import type { Response } from 'express';
-import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard.js';
+import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 
 @ApiTags('invitations')
 @Controller('invitations')
@@ -11,8 +10,6 @@ export class InvitationController {
     constructor(private readonly invitationService: InvitationService) { }
 
     @Post('generate')
-    @UseGuards(JwtAuthGuard)
-    @ApiBearerAuth()
     @ApiOperation({ summary: 'Generate a PDF invitation' })
     @ApiResponse({ status: 201, description: 'PDF generated successfully' })
     async generate(@Body() createInvitationDto: CreateInvitationDto, @Res() res: any) {

@@ -10,14 +10,13 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const app_controller_js_1 = require("./app.controller.js");
 const app_service_js_1 = require("./app.service.js");
-const auth_module_js_1 = require("./auth/auth.module.js");
 const invitation_module_js_1 = require("./invitation/invitation.module.js");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [auth_module_js_1.AuthModule, invitation_module_js_1.InvitationModule],
+        imports: [invitation_module_js_1.InvitationModule],
         controllers: [app_controller_js_1.AppController],
         providers: [app_service_js_1.AppService],
     })

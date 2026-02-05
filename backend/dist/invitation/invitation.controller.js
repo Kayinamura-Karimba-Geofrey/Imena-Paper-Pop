@@ -17,7 +17,6 @@ const common_1 = require("@nestjs/common");
 const invitation_service_js_1 = require("./invitation.service.js");
 const create_invitation_dto_js_1 = require("./dto/create-invitation.dto.js");
 const swagger_1 = require("@nestjs/swagger");
-const jwt_auth_guard_js_1 = require("../auth/jwt-auth.guard.js");
 let InvitationController = class InvitationController {
     invitationService;
     constructor(invitationService) {
@@ -33,8 +32,6 @@ let InvitationController = class InvitationController {
 exports.InvitationController = InvitationController;
 __decorate([
     (0, common_1.Post)('generate'),
-    (0, common_1.UseGuards)(jwt_auth_guard_js_1.JwtAuthGuard),
-    (0, swagger_1.ApiBearerAuth)(),
     (0, swagger_1.ApiOperation)({ summary: 'Generate a PDF invitation' }),
     (0, swagger_1.ApiResponse)({ status: 201, description: 'PDF generated successfully' }),
     __param(0, (0, common_1.Body)()),

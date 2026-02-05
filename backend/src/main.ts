@@ -13,7 +13,6 @@ async function bootstrap() {
     .setTitle('Imena Paper Pop API')
     .setDescription('The API documentation for Imena Paper Pop invitation generator')
     .setVersion('1.0')
-    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
