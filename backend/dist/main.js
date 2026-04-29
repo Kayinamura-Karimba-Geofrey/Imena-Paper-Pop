@@ -5,6 +5,12 @@ const app_module_js_1 = require("./app.module.js");
 const swagger_1 = require("@nestjs/swagger");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_js_1.AppModule);
+    app.enableCors({
+        origin: true,
+        credentials: true,
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
+    });
     const config = new swagger_1.DocumentBuilder()
         .setTitle('Imena Paper Pop API')
         .setDescription('The API documentation for Imena Paper Pop invitation generator')
